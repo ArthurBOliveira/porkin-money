@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     public bool grounded;
 
     private Rigidbody2D rg2d;
+    private Animator anim;
 
     private void Awake()
     {
         rg2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
+            //anim.SetTrigger("jump");
             rg2d.AddForce(Vector2.up * currJumpForce);
             currJumpForce = currJumpForce > 0 ? currJumpForce - 1 : 0;
         }
